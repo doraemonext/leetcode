@@ -12,7 +12,7 @@ public:
             graph[edges[i].second].push_back(edges[i].first);
         }
 
-        while (empty_count <= n - 2) {
+        while (empty_count < n - 2) {
             leave_edges.clear();
 
             for (int i = 0; i < n; i++) {
@@ -36,15 +36,9 @@ public:
             }
         }
 
-        if (empty_count == n - 1) {
-            for (int i = 0; i < n; i++) {
-                if (!empty[i]) {
-                    answer.push_back(i);
-                }
-            }
-        } else {
-            for (int i = 0; i < (int)leave_edges.size(); i++) {
-                answer.push_back(leave_edges[i].first);
+        for (int i = 0; i < n; i++) {
+            if (!empty[i]) {
+                answer.push_back(i);
             }
         }
 
